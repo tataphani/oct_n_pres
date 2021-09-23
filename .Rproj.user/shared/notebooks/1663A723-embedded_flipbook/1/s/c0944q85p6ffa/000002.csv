@@ -1,0 +1,13 @@
+"0","embed_flipbook(chunk_name = ""fine_tuning"", "
+"0","               # use_share_again = T, "
+"0","               # use_embed_xaringan = T,"
+"0","               font_size = 100,"
+"0","               title_page = T,"
+"0","               title = ""How to Style your Plot"","
+"0","               subtitle = ""Thematic Adjustments"","
+"0","               author = ""Reynolds Lab"","
+"0","               break_type = ""user"")"
+"2","Quitting from lines 37-40 (fine_tuning_embed.Rmd) 
+"
+"2","Error in 1:num_lines : result would be too long a vector
+"

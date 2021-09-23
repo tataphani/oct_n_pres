@@ -1,0 +1,8 @@
+"0","library(flipbookr)"
+"0","flipbookr::embed_flipbook(chunk_name = ""my_code"","
+"0","               # use_share_again = T,"
+"0","               font_size = 120)"
+"2","Quitting from lines 37-40 (my_code_embed.Rmd) 
+"
+"2","Error in 1:num_lines : result would be too long a vector
+"

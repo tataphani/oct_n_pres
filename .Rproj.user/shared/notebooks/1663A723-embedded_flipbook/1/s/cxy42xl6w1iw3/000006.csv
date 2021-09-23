@@ -1,0 +1,11 @@
+"0",""
+"0","embed_flipbook(chunk_name = ""my_code"", break_type = ""auto"","
+"0","  code_file_name = paste0(""embedded_flipbooks/"", my_code, "".R""),"
+"0","  rmd_path = paste0(""embedded_flipbooks/"", my_code, ""_embed.Rmd""),"
+"0","  title = stringr::str_replace_all(my_code , ""_|\\."", "" ""),"
+"0","  subtitle = """", author = """", url = paste0(""embedded_flipbooks/"","
+"0","  my_code, ""_embed.html""), height = 325, font_size = 120,"
+"0","  title_page = F)"
+"2","Error in paste0(""embedded_flipbooks/"", my_code, "".R"") : 
+  object 'my_code' not found
+"

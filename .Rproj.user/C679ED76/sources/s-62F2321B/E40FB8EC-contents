@@ -1,0 +1,124 @@
+---
+title: "A Demonstration Flipbook"
+subtitle: "Selecting and Plotting A Variable Across 2 Groups "  
+author: 
+  - "Phanikumar S Tata"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = FALSE, fig.retina = 3)
+library(flipbookr)
+library(xaringan)
+library(xaringanthemer)
+library(tidyverse)
+#install.packages("labelled")
+library(labelled)
+#install("devtools")
+ #remotes::install_github("higgi13425/medicaldata")
+library(medicaldata)
+library(janitor)
+
+#remotes::install_github("sas2r/clinicalfd")
+
+library (clinicalfd)
+adsl <- clinicalfd::adsl %>% 
+  clean_names() %>%
+  as_tibble()
+
+prostate <- medicaldata::blood_storage %>% clean_names() %>% as_tibble()
+
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+xaringanthemer::style_duo_accent(
+  primary_color = "#00274C",
+  secondary_color = "#FFCB05",
+  header_font_google = google_font("Lato"),
+  code_font_google   = google_font("Roboto Mono"),
+  base_font_size = "20px",
+  code_font_size = "0.8rem",
+)
+```
+
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+# adds share bar to flipbooks
+```
+
+### A Demonstration Flipbook
+
+#### Each Line of Code Produces the Results on the Right
+
+- The pipe **%>%** takes the result of one line of code and 'pipes' it into the next function. <br>It can be read as "and then..."
+
+- The **select** function selects columns in a dataframe.
+
+- The **group_by** function groups the observations(rows) of data into groups
+
+- the **ggplot** function plots data according to a layered model of graphics called the "grammar of graphics".
+
+- each step in the ggplot adds to or changes the plot. 
+
+
+---
+
+```{r adsl, include = FALSE, eval = FALSE}
+adsl %>% 
+# select 2 columns
+  select( trt01p , age , bmibl) %>% 
+# slow plot 
+  ggplot() +
+  aes(x = factor(age)) +
+  aes(y = bmibl ) +
+  aes(color = factor(age)) +
+  aes(fill = factor(age)) +
+  geom_violin(alpha = 0.3) +
+  labs(x = "Age", 
+       y = "BMI") +
+  theme_linedraw(base_size = 14) +
+  theme(legend.position = c(0.5, 0.8)) +
+  scale_color_discrete(name = "age", 
+    labels = c("No Recurrence", "age")) +
+  guides(fill = FALSE)
+  
+```
+
+
+
+
+```{r demo1, include = FALSE, eval = FALSE}
+prostate %>% 
+# select 2 columns
+  select(p_vol, recurrence) %>% 
+# slow plot 
+  ggplot() +
+  aes(x = factor(recurrence)) +
+  aes(y = p_vol) +
+  aes(color = factor(recurrence)) +
+  aes(fill = factor(recurrence)) +
+  geom_violin(alpha = 0.3) +
+  labs(x = "Recurrence", 
+       y = "Prostate Volume") +
+  theme_linedraw(base_size = 14) +
+  theme(legend.position = c(0.5, 0.8)) +
+  scale_color_discrete(name = "Recurrence", 
+    labels = c("No Recurrence", "Recurrence")) +
+  guides(fill = FALSE)
+  
+```
+
+
+`r chunk_reveal("demo1", 
+    break_type = "auto", 
+    title = "Demonstration 1: Select Variables, then Violin Plot")`

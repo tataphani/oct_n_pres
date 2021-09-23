@@ -1,0 +1,6 @@
+"0","# This is the recommended set up for flipbooks"
+"0","# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming"
+"0","# options(knitr.duplicate.label = ""allow"")"
+"0","knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = """", cache = F, error = F)"
+"0","library(flipbookr)"
+"0","library(tidyverse)"

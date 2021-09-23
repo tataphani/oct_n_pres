@@ -1,0 +1,6 @@
+"0","cars %>% "
+"0","  ggplot() +"
+"0","  aes(x = dist) +"
+"0","  aes(y = speed) +"
+"0","  geom_point() -> g"
+"0","#g"
