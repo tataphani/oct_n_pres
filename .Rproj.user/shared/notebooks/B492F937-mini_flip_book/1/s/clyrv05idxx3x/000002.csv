@@ -1,0 +1,12 @@
+"0","library(here)"
+"0","?here()"
+"0","adsl <- clinicalfd::adsl"
+"0","here::here('codelist')"
+"1","[1]"
+"1"," ""C:/Users/tatav/Documents/oct_n_pres/codelist"""
+"1","
+"
+"0","#here::here(""data"" , ""adsl"")"
+"0","```"
+"2","Error: attempt to use zero-length variable name
+"

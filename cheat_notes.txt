@@ -1,0 +1,161 @@
+
+`r chunk_reveal("learn_tib")`
+
+```{r learn_tib, include= FALSE}
+library(tibble) # also a part of the tidyverse
+
+t_tibble <- tribble(  ~"id", ~"greet", ~"nums"  ) 
+t_tibble 
+# **NOTE spelling difference
+# library(TIBBLE) tRibble to create **  helps build small data sets  
+
+
+tribble(
+  ~"id", ~"greet", ~"nums", # column heads
+  1,        "hi",       2.3, 
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+ 
+# You can store it in a R object for later use 
+
+dm <- tribble(
+  ~"id", ~"greet", ~"nums", # column heads
+  1,        "INDIA",       2.3, 
+  )
+
+typeof(dm)
+dm
+
+```
+
+---
+
+
+
+
+
+```{r  l_tib ,  include= FALSE}
+
+
+
+tribble(
+  ~"id", ~"greet", ~"nums", # column heads
+  1,        "hi",       2.3, 
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+ 
+```
+
+
+t_tibble <- tribble(  ~"id", ~"greet", ~"nums"  ) 
+t_tibble 
+# **NOTE spelling difference
+# library(TIBBLE) tRibble to create **  helps build small data sets  
+
+
+
+
+
+### Reading in the data 
+### Try doing someting like this 
+#adsl_1  <- select ( clinicalfd::adsl , subjid , arm , trt01pn , sex  )
+class(adsl_1)
+str(adsl_1)
+adsl_2 = as_tibble(select ( clinicalfd::adsl , subjid , arm , trt01pn , sex  ))
+ 
+#### filter for one subject
+**try using "="  instead of "==" in the filter see the error**
+uni_sub <- filter (adsl_1 , subjid = "1015" )
+
+
+---
+
+
+---
+
+
+`r chunk_reveal("adsl")`
+
+
+```{r adsl , include = FALSE}
+library(dplyr)
+library(clinicalfd)
+
+adsl_2 = as_tibble(select ( clinicalfd::adsl , subjid , arm , trt01pn , sex  ))
+sure 
+subjid <- dplyr::filter(clinicalfd::adsl , subjid == "1015" )
+
+#str(adsl_2)
+# cars %>%
+#   filter(speed > 4) %>%
+#   ggplot() +
+#   aes(x = speed) + #BREAK
+#   aes(y = dist) + #BREAK
+#   geom_point(
+#     alpha = .8, 
+#     color = "blue" 
+#     ) + 
+#   aes(size = speed) #BREAK
+```
+
+
+
+cars %>%
+  filter(speed > 4) %>%
+  ggplot() +
+  aes(x = speed) + #BREAK
+  aes(y = dist) + #BREAK
+  geom_point(
+    alpha = .8, 
+    color = "blue" 
+    ) + 
+  aes(size = speed) #BREAK
+
+
+
+
+
+---
+`r chunk_reveal("dpl_v")`
+
+```{r dpl_v , include = FALSE}
+library(dplyr)
+names(datasets::ChickWeight)
+# Filtering for purpose of Presentation 
+
+CWeight <- filter(datasets::ChickWeight  , weight == '72' | weight ==  '73' | weight == "74"  )
+#Select 
+select_var <- head(dplyr::select( CWeight , weight , Diet  ))
+
+#Filter
+filter_var <-  as_tibble(dplyr::filter(CWeight , weight < 100 & Diet == "2" )) 
+```
+
+
+
+sel <- cars %>%  select(speed )
+  
+
+#Filter
+sp  <- cars %>%  filter( speed > 4 & speed < 11)
+
+
+
+---
+
+`r chunk_reveal("dpl_vaf")`
+
+```{r dpl_vaf , include = FALSE}
+library(dplyr)
+# arrange
+arrange_var <-  as_tibble(arrange(filter_var , weight , desc(Time)  ))
+
+#Filter
+arrange_chk <-  as_tibble(filter(arrange_var , weight == '72' | weight ==  '73' | weight == "74" )) 
+
+#distinct 
+
+uni <- as_tibble(distinct(CWeight , weight ))
+```

@@ -4,7 +4,7 @@
     <title>—Learning Data Manuplation—-</title>
     <meta charset="utf-8" />
     <meta name="author" content="  Phanikumar S Tata" />
-    <meta name="date" content="2021-09-21" />
+    <meta name="date" content="2021-10-04" />
     <script src="libs/header-attrs-2.10/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
@@ -25,10 +25,6 @@
 
 
 
-
-
-
-
 class: left, top, inverse
 background-image: url(broom.jpg)
 background-size: cover
@@ -36,24 +32,15 @@ background-size: cover
 # .large[Data Cleaning]
 ### Walk-throughs &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+&lt;br&gt; 
 &lt;br&gt;
 
-
-#### .right[Phanikumar &lt;br&gt;Photo Credit: Zoya Loonohod]
+#### .right[ Presentation : Phanikumar &lt;br&gt;&lt;br&gt; &lt;br&gt;Photo Credit: Zoya Loonohod]&lt;br&gt;
 
 
 
-
-
+---
+class: inverse, middle, center
 
 # Hi!
 
@@ -81,21 +68,14 @@ We use `chunk_reveal()` it 'inline', not in a code chunk.
 
 Let's start!
 
-
-
 ---
+
 class: inverse, middle, center
-
-
-# First up: classic flipbook, using defaults to walk through code pipeline
-
----
 
 # Introduction
 
-Data cleaning is the pits.  Or is it?  The cleaning tools of the `tidyverse` and other packages like `janitor` might help such tasks become less terrible -- and more fun! Let's look at a couple of examples. 
 
-
+####Data cleaning is the pits.  Or is it?  The cleaning tools of the **tidyverse** and other packages like  **janitor** might help such tasks become less terrible -- and more fun! Let's look at a couple of examples. 
 
 ---
 
@@ -111,19 +91,11 @@ The tools demonstrated in this book are implemented in the statistical software,
 
 # Acknowledgements
 
-I'm grateful to the tidyverse team for their tireless work on developing and maintaining this wonderful toolkit and to RStudio for supporting the development I'm *very* grateful to them for their work on this as well as to Yihui Xie and others for their work on the Xaringan package --- the extraordinary platform for creating the slides for this book. 
----
+I'm grateful to the tidyverse team for their tireless work on developing and maintaining this wonderful toolkit and to RStudio for supporting the development 
 
-# Preliminaries
+I'm *very* grateful to them for their work on this as well as to Yihui Xie and others for their work on the Xaringan package --- the extraordinary platform for creating the slides. 
 
-This book covers some examples of getting data into R and cleaning it.  There are about 5 steps involved as follows:
-
-- Step 0: Identifying data of interest
-- Step 1: Saving this data to your raw_data folder
-- Step 2: Scanning the data into R and assigning an object like *the_data_raw*
-- Step 3: Cleaning the data and assigning to an object like *the_data*
-- Step 4: Saving out the clean data in a data_products folder
-- Step 5: Loading your clean data - ready for analysis! 
+Thankful for **R user community meetup** for giving me opportunity to present
 
 ---
 
@@ -198,53 +170,37 @@ Dev
     ├── 02_analysis.Rmd        &lt;- work files
     ├── final_project.Rproj    &lt;- you declared your project
 ├── results        &lt;- Output Folder 
+
+
 ```
 
 ---
-
-```r
+I found [Here](https://here.r-lib.org/) This Pictures says it all 
+![](figures/here.png)
 library(here)
-?here()
-adsl &lt;- clinicalfd::adsl
-here::here('codelist')
-```
-
-```
-  [1] "C:/Users/tatav/Documents/oct_n_pres/codelist"
-```
-
-```r
-#here::here("data" , "adsl")
-```
+here::here("data" , "adsl")
 ---
+#### Using **file.exists** to get the Location and dir.create to create a required folder
 
-## Using file.exists to get the Location and dir.create to create a required folder 
-
-```r
 folder &lt;- "Programs"
 
-if (file.exists(folder)) {
- cat("The folder already exists")
-} else {
- dir.create(folder)
-}
-```
----
-## Using Here Library to create a required folder 
+ if (file.exists(folder)) {
+  cat("The folder already exists")
+ } else {
+  dir.create(folder)
+ }
 
-```r
-library(here)
+Using Here Library to create a required folder
 
-if (!dir.exists(here('results'))) 
-  {dir.create(here('results'))}
-```
+ if (!dir.exists(here('results')))
+ {dir.create(here('results'))}
 
----
 
-# R: HOW TO CREATE, DELETE, MOVE, AND MORE WITH FILES
+#### HOW TO CREATE, DELETE, MOVE, AND MORE WITH FILES using R
 
 Though Python is usually thought of over R for doing system administration tasks, R is actually quite useful in this regard. In this post we’re going to talk about using R to create, delete, move, and obtain information on files.
 
+Here is List of things how you can do them in R 
 
 - [Basic tasks using R](http://theautomatic.net/2018/07/11/manipulate-files-r/)
 
@@ -252,10 +208,9 @@ Though Python is usually thought of over R for doing system administration tasks
 
 # Assignment Operators 
 
-The operator **"&lt;–" is equivalent to "=" sign. for creating a vector, Equal to "="**
+The operator **"&lt;–" is equivalent to "=" sign. for creating a vector, Equal to "="** **"&lt;-" , "&lt;&lt;-" , "-&gt;" , "-&gt;&gt;" , "=" all these assignment operators **
 
-**"&lt;-" , "&lt;&lt;-" , "-&gt;" , "-&gt;&gt;" , "=" all these assignment operators **
-**Use ";"  to write two R statements write next to each other **
+Use **";"  to write two R statements write next to each other **
 
 There are three different assignment operators: two of them have leftwards and rightwards forms.
 
@@ -298,181 +253,7 @@ Here is how you can simply type in your numbers for all your calculations
 
 ---
 
-count: false
- 
 
-.panel1-basic-auto[
-
-```r
-*1 + 1
-```
-]
- 
-.panel2-basic-auto[
-
-```
-  [1] 2
-```
-]
-
----
-count: false
- 
-
-.panel1-basic-auto[
-
-```r
-1 + 1
-
-*5 * 8
-```
-]
- 
-.panel2-basic-auto[
-
-```
-  [1] 2
-```
-
-```
-  [1] 40
-```
-]
-
----
-count: false
- 
-
-.panel1-basic-auto[
-
-```r
-1 + 1
-
-5 * 8
-
-*(4 + 2)^2
-```
-]
- 
-.panel2-basic-auto[
-
-```
-  [1] 2
-```
-
-```
-  [1] 40
-```
-
-```
-  [1] 36
-```
-]
-
----
-count: false
- 
-
-.panel1-basic-auto[
-
-```r
-1 + 1
-
-5 * 8
-
-(4 + 2)^2
-
-*3 / (3 + 6)
-```
-]
- 
-.panel2-basic-auto[
-
-```
-  [1] 2
-```
-
-```
-  [1] 40
-```
-
-```
-  [1] 36
-```
-
-```
-  [1] 0.3333333
-```
-]
-
----
-count: false
- 
-
-.panel1-basic-auto[
-
-```r
-1 + 1
-
-5 * 8
-
-(4 + 2)^2
-
-3 / (3 + 6)
-```
-]
- 
-.panel2-basic-auto[
-
-```
-  [1] 2
-```
-
-```
-  [1] 40
-```
-
-```
-  [1] 36
-```
-
-```
-  [1] 0.3333333
-```
-]
-
-&lt;style&gt;
-.panel1-basic-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-basic-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-basic-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-
-
----
 ##Data Types in R
 
 ![](figures/01data_types.png)
@@ -498,10 +279,8 @@ c("We have more than 1000 R programmers in our company")  &lt;---- This is Okay 
 c(1000 , "programmers") + 1  &lt;- might throw an **ERROR**  as they are two different types
     
     
-    
 ---
 
-##### NOTE : You can't Mix data types in a vector . If you mix them R will **COERCE** them so that they are all the same. COERCE in R means **Automatic conversion** from one datatype to another.So if you mix the numeric and character type then Numbers are coerced to characters so 10 will "10"
 
 ![](figures/coercion.png)
 ---
@@ -525,12 +304,15 @@ Ex: multiplication &lt;- data_type**$**int; &lt;- data_type**$**integer
 
 ---
 
+A data Frame is list of vectors which are of equal length .R matrix contains only one type of data while data frame accepts different data types ( Numeric, Char , Factor)
+
+**More details below**
 
 ## **Data Frames**
 
 ![](figures/dataframe.png)
 
-A data Frame is list of vectors which are of equal length .R matrix contains only one type of data while data frame accepts different data types ( Numeric, Char , Factor)
+
 
 
 ---
@@ -559,34 +341,61 @@ Data can be numbers, words, true/false values or combinations of these. In order
 
 
 ---
+## Numeric Vector 
+A vector can either be Numeric or Character or factor . Data types in R are referred to as "class" . The class command is used to find what type of data it is .
 
 
 **Numeric Data Type**
 
 |      structure
-|----------------
-|     Integer ex: typeof(10)
-|     double  ex: typeof(10.0)
-|     Integer ex: typeof(10L)
-|     complex ex: typeof(10i)
+|-----------------------------------------------
+|     Integer             ex: int &lt;- 10   ; typeof(int)
+|     double              ex: dou &lt;- 10.0 ; typeof(dou)
+|     Integer             ex: int &lt;- 10L  ; typeof(int)
+|     complex             ex: com &lt;- 10i  ; typeof (com)
+|------------------------------------------------
 
 ### Useful R functions 
 
 typeof()         ------ Gives if it is a Integer , Double , Complex Etc 
+--
+
 is.numeric()     ------ Gives TRUE or FALSE
 
 
-A vector can either be Numeric or Character or factor . Data types in R are referred to as "class" . The class command is used to find what type of data it is .
+
+---
+#### Try it in the consolse ;
+
+int1 &lt;- 1   ; typeof(int1) ; class(int1)
+
+--
 
 
-Try ; 
-x  &lt;- 10 ; "AB" -&gt; C
-class(x) ; class(c)
- 
+dou &lt;- 10.0 ; typeof(dou)  ; class(dou)
+
+--
+
+
+int &lt;- 10L  ; typeof(int)  ; class(int)
+
+
+--
+
+
+com &lt;- 10i  ; typeof (com) ; class(com)
+--
+
+![](figures/num_types.png)
+
+
+
 ---
 
+### Numeric vector ( **class()** VS **typeof()** )
 
-### Numeric vector
+
+
 
 
 count: false
@@ -615,6 +424,32 @@ count: false
 ```r
 x &lt;- c(1,2,3,4,5,6) ; class(x)
 
+*typeof(x) ;
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
 *a1 = 10             ; class(a1)
 ```
 ]
@@ -626,33 +461,7 @@ x &lt;- c(1,2,3,4,5,6) ; class(x)
 ```
 
 ```
-  [1] "numeric"
-```
-]
-
----
-count: false
- 
-
-.panel1-nvect-auto[
-
-```r
-x &lt;- c(1,2,3,4,5,6) ; class(x)
-
-a1 = 10             ; class(a1)
-
-*b1 &lt;- 11            ; class(b1)
-```
-]
- 
-.panel2-nvect-auto[
-
-```
-  [1] "numeric"
-```
-
-```
-  [1] "numeric"
+  [1] "double"
 ```
 
 ```
@@ -669,9 +478,11 @@ count: false
 ```r
 x &lt;- c(1,2,3,4,5,6) ; class(x)
 
+typeof(x) ;
+
 a1 = 10             ; class(a1)
 
-b1 &lt;- 11            ; class(b1)
+*b1 &lt;- 11.01            ; class(b1)
 ```
 ]
  
@@ -682,11 +493,803 @@ b1 &lt;- 11            ; class(b1)
 ```
 
 ```
+  [1] "double"
+```
+
+```
   [1] "numeric"
 ```
 
 ```
   [1] "numeric"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+*typeof(b1) ;
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+*b3 &lt;- 11i            ; class(b3)
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+*typeof(b3) ;
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+*c = a1 + b1         ; class(c)
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+*typeof(c) ;
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+typeof(c) ;
+
+*D = a1 * b1         ; class(D);
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+typeof(c) ;
+
+D = a1 * b1         ; class(D);
+
+*typeof(D) ;
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+typeof(c) ;
+
+D = a1 * b1         ; class(D);
+
+typeof(D) ;
+
+*E = x - 10         ; class(E);
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+typeof(c) ;
+
+D = a1 * b1         ; class(D);
+
+typeof(D) ;
+
+E = x - 10         ; class(E);
+
+*typeof(E)
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+typeof(c) ;
+
+D = a1 * b1         ; class(D);
+
+typeof(D) ;
+
+E = x - 10         ; class(E);
+
+typeof(E)
+
+
+*print(E)
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] -9 -8 -7 -6 -5 -4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-nvect-auto[
+
+```r
+x &lt;- c(1,2,3,4,5,6) ; class(x)
+
+typeof(x) ;
+
+a1 = 10             ; class(a1)
+
+b1 &lt;- 11.01            ; class(b1)
+
+typeof(b1) ;
+
+b3 &lt;- 11i            ; class(b3)
+
+typeof(b3) ;
+
+c = a1 + b1         ; class(c)
+
+typeof(c) ;
+
+D = a1 * b1         ; class(D);
+
+typeof(D) ;
+
+E = x - 10         ; class(E);
+
+typeof(E)
+
+
+print(E)
+```
+]
+ 
+.panel2-nvect-auto[
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "complex"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] "numeric"
+```
+
+```
+  [1] "double"
+```
+
+```
+  [1] -9 -8 -7 -6 -5 -4
 ```
 ]
 
@@ -719,50 +1322,15 @@ b1 &lt;- 11            ; class(b1)
 
 
 
-
-```r
-x &lt;- c(1,2,3,4,5,6) ; class(x)
-```
-
-```
-  [1] "numeric"
-```
-
-```r
-a1 = 10             ; class(a1)
-```
-
-```
-  [1] "numeric"
-```
-
-```r
-b1 &lt;- 11            ; class(b1)
-```
-
-```
-  [1] "numeric"
-```
-
 ---
-&lt;br&gt;
-&lt;br&gt;
-
- 
-**Character Data Type **
-
-data type      |      structure
----------------|----------------
-               |    ex: typeof("Character string (with two Quotes) ")
-               |    **Character Strings are any Text between Quotation mark**
-
-&lt;br&gt;
-&lt;br&gt;
 
 ### Character vector 
+
 Character vectors need **Quotes** to indicate that they are *CHAR*
 
----
+Character vector ----- ** c(" ") Character Strings are any Text between Quotation mark**
+ex: typeof("Character string (with two Quotes) ")
+     
 
 count: false
  
@@ -816,7 +1384,6 @@ x &lt;- c("Mon" , "TUE" , "Wed");  class(x)
 
 a1 = "THUR" ;   class(a1)
 
-
 *weekday &lt;- c("Mon" , "TUE" , "Wed" , "Mon" , "Tue" , "Wed"); class(weekday )
 ```
 ]
@@ -847,13 +1414,42 @@ x &lt;- c("Mon" , "TUE" , "Wed");  class(x)
 
 a1 = "THUR" ;   class(a1)
 
+weekday &lt;- c("Mon" , "TUE" , "Wed" , "Mon" , "Tue" , "Wed"); class(weekday )
+# Getting the Count of Week days , See TUE and Tue are counted differently as R #is case sensitive
+*week_count &lt;- table(weekday)
+```
+]
+ 
+.panel2-cvect-auto[
+
+```
+  [1] "character"
+```
+
+```
+  [1] "character"
+```
+
+```
+  [1] "character"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-cvect-auto[
+
+```r
+x &lt;- c("Mon" , "TUE" , "Wed");  class(x)
+
+a1 = "THUR" ;   class(a1)
 
 weekday &lt;- c("Mon" , "TUE" , "Wed" , "Mon" , "Tue" , "Wed"); class(weekday )
-
-# Getting the Count of Week days , See TUE and Tue
-# are counted differently as R is case sensitive
-
-*table(weekday)
+# Getting the Count of Week days , See TUE and Tue are counted differently as R #is case sensitive
+week_count &lt;- table(weekday)
+*week_count
 ```
 ]
  
@@ -889,16 +1485,14 @@ x &lt;- c("Mon" , "TUE" , "Wed");  class(x)
 
 a1 = "THUR" ;   class(a1)
 
-
 weekday &lt;- c("Mon" , "TUE" , "Wed" , "Mon" , "Tue" , "Wed"); class(weekday )
-
-# Getting the Count of Week days , See TUE and Tue
-# are counted differently as R is case sensitive
-
-table(weekday)
-
+# Getting the Count of Week days , See TUE and Tue are counted differently as R #is case sensitive
+week_count &lt;- table(weekday)
+week_count
 
 # b1 &lt;- FRI  This gives an ERROR
+
+
 *#class(b1)  #class(b1)
 ```
 ]
@@ -935,16 +1529,14 @@ x &lt;- c("Mon" , "TUE" , "Wed");  class(x)
 
 a1 = "THUR" ;   class(a1)
 
-
 weekday &lt;- c("Mon" , "TUE" , "Wed" , "Mon" , "Tue" , "Wed"); class(weekday )
-
-# Getting the Count of Week days , See TUE and Tue
-# are counted differently as R is case sensitive
-
-table(weekday)
-
+# Getting the Count of Week days , See TUE and Tue are counted differently as R #is case sensitive
+week_count &lt;- table(weekday)
+week_count
 
 # b1 &lt;- FRI  This gives an ERROR
+
+
 #class(b1)  #class(b1)
 ```
 ]
@@ -1002,12 +1594,1007 @@ table(weekday)
 
 
 ---
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
 
-# Examples of Creating different Types Vectors 
+
+# Some functions all about type...
+
+---
+
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+*is.character("hi")
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+*is.numeric(1)
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+is.numeric(1)
+
+*is.integer(2.3)
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+is.numeric(1)
+
+is.integer(2.3)
+
+*is.double(4L)
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+is.numeric(1)
+
+is.integer(2.3)
+
+is.double(4L)
+
+*is.integer(4)
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+is.numeric(1)
+
+is.integer(2.3)
+
+is.double(4L)
+
+is.integer(4)
+
+*is.integer(4L)
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+is.numeric(1)
+
+is.integer(2.3)
+
+is.double(4L)
+
+is.integer(4)
+
+is.integer(4L)
+
+*is.factor("good")
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-is_type-auto[
+
+```r
+is.character("hi")
+
+is.numeric(1)
+
+is.integer(2.3)
+
+is.double(4L)
+
+is.integer(4)
+
+is.integer(4L)
+
+is.factor("good")
+```
+]
+ 
+.panel2-is_type-auto[
+
+```
+  [1] TRUE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] FALSE
+```
+]
+
+&lt;style&gt;
+.panel1-is_type-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-is_type-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-is_type-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+# Conversion from one type to another
+
+---
+
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+*as.numeric("hi")
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+*as.integer(1)
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+*as.character(2.3)
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+as.character(2.3)
+
+*as.double(4L)
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+
+```
+  [1] 4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+as.character(2.3)
+
+as.double(4L)
+
+*is.integer(4)
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+
+```
+  [1] 4
+```
+
+```
+  [1] FALSE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+as.character(2.3)
+
+as.double(4L)
+
+is.integer(4)
+
+*is.integer(4L)
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+
+```
+  [1] 4
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+as.character(2.3)
+
+as.double(4L)
+
+is.integer(4)
+
+is.integer(4L)
+
+*as.factor(c("good", "bad"))
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+
+```
+  [1] 4
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] good bad 
+  Levels: bad good
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+as.character(2.3)
+
+as.double(4L)
+
+is.integer(4)
+
+is.integer(4L)
+
+as.factor(c("good", "bad"))
+
+#%&gt;% this is a pipe operator
+# passes all of what precedes
+#to function that follows
+
+*matrix(1:4, nrow = 2) %&gt;% as.vector()
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+
+```
+  [1] 4
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] good bad 
+  Levels: bad good
+```
+
+```
+  [1] 1 2 3 4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-as_type-auto[
+
+```r
+as.numeric("hi")
+
+as.integer(1)
+
+as.character(2.3)
+
+as.double(4L)
+
+is.integer(4)
+
+is.integer(4L)
+
+as.factor(c("good", "bad"))
+
+#%&gt;% this is a pipe operator
+# passes all of what precedes
+#to function that follows
+
+matrix(1:4, nrow = 2) %&gt;% as.vector()
+```
+]
+ 
+.panel2-as_type-auto[
+
+```
+  [1] NA
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] "2.3"
+```
+
+```
+  [1] 4
+```
+
+```
+  [1] FALSE
+```
+
+```
+  [1] TRUE
+```
+
+```
+  [1] good bad 
+  Levels: bad good
+```
+
+```
+  [1] 1 2 3 4
+```
+]
+
+&lt;style&gt;
+.panel1-as_type-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-as_type-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-as_type-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+# As factors
+
+---
+
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+*c("50", "80")
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] "50" "80"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+c("50", "80") %&gt;%
+
+* as.factor()
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] 50 80
+  Levels: 50 80
+```
+]
+
+---
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+c("50", "80") %&gt;%
+
+  as.factor() %&gt;%
+
+* as.numeric()  # maybe surprising
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] 1 2
+```
+]
+
+---
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+c("50", "80") %&gt;%
+
+  as.factor() %&gt;%
+
+  as.numeric()  # maybe surprising
+
+*c("50", "80")
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] 1 2
+```
+
+```
+  [1] "50" "80"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+c("50", "80") %&gt;%
+
+  as.factor() %&gt;%
+
+  as.numeric()  # maybe surprising
+
+c("50", "80") %&gt;%
+
+*   as.factor()
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] 1 2
+```
+
+```
+  [1] 50 80
+  Levels: 50 80
+```
+]
+
+---
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+c("50", "80") %&gt;%
+
+  as.factor() %&gt;%
+
+  as.numeric()  # maybe surprising
+
+c("50", "80") %&gt;%
+
+    as.factor() %&gt;%
+
+*   as.character()
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] 1 2
+```
+
+```
+  [1] "50" "80"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-factors-auto[
+
+```r
+c("50", "80") %&gt;%
+
+  as.factor() %&gt;%
+
+  as.numeric()  # maybe surprising
+
+c("50", "80") %&gt;%
+
+    as.factor() %&gt;%
+
+    as.character() %&gt;%
+
+*    as.numeric()  # less surprising
+```
+]
+ 
+.panel2-factors-auto[
+
+```
+  [1] 1 2
+```
+
+```
+  [1] 50 80
+```
+]
+
+&lt;style&gt;
+.panel1-factors-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-factors-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-factors-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+### **c()**  Examples of Creating different Types Vectors 
+
+Combine Values into a Vector or List
+
+
+This is a generic function which combines its arguments.
+
+The default method combines its arguments to form a vector. All arguments are coerced to a common type which is the type of the returned value, and all attributes except names are removed.
+
+The output type is determined from the highest type of the components in the hierarchy NULL &lt; raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list &lt; expression. Pairlists are treated as lists, whereas non-vector components (such as names / symbols and calls) are treated as one-element lists which cannot be unlisted even if recursive = TRUE.
+
+Note that in R &lt; 4.1.0, factors were treated only via their internal integer codes: now there is c.factor method which combines factors into a factor.
+
+c is sometimes used for its side effect of removing attributes except names, for example to turn an array into a vector. as.vector is a more intuitive way to do this, but also drops names. Note that methods other than the default are not required to do this (and they will almost certainly preserve a class attribute).
+
+This is a primitive function.
 
 ---
 
@@ -1667,147 +3254,3253 @@ factor(c("hello", "hi", "bye", "bye"))
 
 
 
+
+
+---
+
+
+### str {utils}	
+
+Compactly Display the Structure of an Arbitrary R Object
+
+Compactly display the internal structure of an R object, a diagnostic function and an alternative to summary (and to some extent, dput). Ideally, only one line for each ‘basic’ structure is displayed. 
+
+It is especially well suited to compactly display the (abbreviated) contents of (possibly nested) lists. The idea is to give reasonable output for any R object. It calls args for (non-primitive) function objects.
+
+strOptions() is a convenience function for setting options(str = .), .
+
+### Note
+
+The default method tries to “work always”, but needs to make some assumptions for the case when object has a class but no own str() method which is the typical case:
+
+There it relies on "[" and "[[" subsetting methods to be compatible with length(). When this is not the case, or when is.list(object) is TRUE, but length(object) differs from length(unclass(object)) it treats it as “irregular” and reports the contents of unclass(object) as “hidden list”.
+
+
+---
+
+count: false
  
+
+.panel1-str-auto[
+
+```r
+*str(3)
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+*str("hello")
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+*str(1.1)
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+*str(1:8)
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+*str(2L)
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+*str(c(2, 5, 8))
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+*str(c(2L, 5L, 8L))
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
+*str(c(1,3))
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+
+```
+   num [1:2] 1 3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
+str(c(1,3))
+
+*str(factor(c("hello", "bye")))
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+
+```
+   num [1:2] 1 3
+```
+
+```
+   Factor w/ 2 levels "bye","hello": 2 1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
+str(c(1,3))
+
+str(factor(c("hello", "bye")))
+
+*str(factor(c("hello", "bye"),
+*          levels = c("hi", "hello",
+*                     "bye")))
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+
+```
+   num [1:2] 1 3
+```
+
+```
+   Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+   Factor w/ 3 levels "hi","hello","bye": 2 3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
+str(c(1,3))
+
+str(factor(c("hello", "bye")))
+
+str(factor(c("hello", "bye"),
+           levels = c("hi", "hello",
+                      "bye")))
+
+*str(Sys.time())
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+
+```
+   num [1:2] 1 3
+```
+
+```
+   Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+   Factor w/ 3 levels "hi","hello","bye": 2 3
+```
+
+```
+   POSIXct[1:1], format: "2021-10-04 23:02:45"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
+str(c(1,3))
+
+str(factor(c("hello", "bye")))
+
+str(factor(c("hello", "bye"),
+           levels = c("hi", "hello",
+                      "bye")))
+
+str(Sys.time())
+
+*str(Sys.Date())
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+
+```
+   num [1:2] 1 3
+```
+
+```
+   Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+   Factor w/ 3 levels "hi","hello","bye": 2 3
+```
+
+```
+   POSIXct[1:1], format: "2021-10-04 23:02:45"
+```
+
+```
+   Date[1:1], format: "2021-10-04"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-str-auto[
+
+```r
+str(3)
+
+str("hello")
+
+str(1.1)
+
+str(1:8)
+
+str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
+str(c(1,3))
+
+str(factor(c("hello", "bye")))
+
+str(factor(c("hello", "bye"),
+           levels = c("hi", "hello",
+                      "bye")))
+
+str(Sys.time())
+
+str(Sys.Date())
+```
+]
+ 
+.panel2-str-auto[
+
+```
+   num 3
+```
+
+```
+   chr "hello"
+```
+
+```
+   num 1.1
+```
+
+```
+   int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+   int 2
+```
+
+```
+   num [1:3] 2 5 8
+```
+
+```
+   int [1:3] 2 5 8
+```
+
+```
+   num [1:2] 1 3
+```
+
+```
+   Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+   Factor w/ 3 levels "hi","hello","bye": 2 3
+```
+
+```
+   POSIXct[1:1], format: "2021-10-04 23:02:45"
+```
+
+```
+   Date[1:1], format: "2021-10-04"
+```
+]
+
+&lt;style&gt;
+.panel1-str-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-str-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-str-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
 
 
 
 ---
+
+### Data Frames constructing data in r
+
+data.frame {base}	
+
+The function data.frame() creates data frames, tightly coupled collections of variables which share many of the properties of matrices and of lists, used as the fundamental data structure by most of R's modeling software.
+
+A data frame is a list of variables of the same number of rows with unique row names, given class **"data.frame"**. If no variables are included, the row names determine the number of rows.
+
+The column names should be non-empty, and attempts to use empty names will have unsupported results. Duplicate column names are allowed, but you need to use **check.names = FALSE** for data.frame to generate such a data frame. However, not all operations on data frames will **preserve duplicated column names**: for example matrix-like subsetting will force column names in the result to be unique.
+
+data.frame converts each of its arguments to a data frame by calling as.data.frame(optional = TRUE). As that is a generic function, methods can be written to change the behavior of arguments according to their classes: R comes with many such methods. Character variables passed to data.frame are converted to factor columns unless protected by I or argument stringsAsFactors is false. 
+
+
+---
+
+### Data Frames constructing data in r (contd..)
+
+If a list or data frame or matrix is passed to data.frame it is as if each component or column had been passed as a separate argument (except for matrices protected by I).
+
+Objects passed to data.frame should have the same number of rows, but atomic vectors (see is.vector), factors and character vectors protected by I will be recycled a whole number of times if necessary (including as elements of list arguments).
+
+If row names are not supplied in the call to data.frame, the row names are taken from the first component that has suitable names, for example a named vector or a matrix with rownames or a data frame. (If that component is subsequently recycled, the names are discarded with a warning.) If row.names was supplied as NULL or no suitable component was found the row names are the integer sequence starting at one (and such row names are considered to be ‘automatic’, and not preserved by as.matrix).
+
+If row names are supplied of length one and the data frame has a single row, the row.names is taken to specify the row names and not a column (by name or number).
+
+---
+
+
+Names are removed from vector inputs not protected by I.
+
+default.stringsAsFactors is a utility that takes getOption("stringsAsFactors") and ensures the result is TRUE or FALSE (or throws an error if the value is not NULL). This function is deprecated now and will no longer be available in the future.
+
+![](figures/01dataframe.png)
+---
+
+count: false
+ 
+
+.panel1-dat-auto[
+
+```r
+*data.frame(
+* subjid  = 1:6,
+* country = c("INDIA", "JAPAN",
+*           "UK", "FRA",
+*           "US", "CAN"),
+*  nums = c(2.3, 4.1, 3.5,
+*          3.2, 5.6, 8.9))
+```
+]
+ 
+.panel2-dat-auto[
+
+```
+    subjid country nums
+  1      1   INDIA  2.3
+  2      2   JAPAN  4.1
+  3      3      UK  3.5
+  4      4     FRA  3.2
+  5      5      US  5.6
+  6      6     CAN  8.9
+```
+]
+
+---
+count: false
+ 
+
+.panel1-dat-auto[
+
+```r
+data.frame(
+  subjid  = 1:6,
+  country = c("INDIA", "JAPAN",
+            "UK", "FRA",
+            "US", "CAN"),
+   nums = c(2.3, 4.1, 3.5,
+           3.2, 5.6, 8.9))
+```
+]
+ 
+.panel2-dat-auto[
+
+```
+    subjid country nums
+  1      1   INDIA  2.3
+  2      2   JAPAN  4.1
+  3      3      UK  3.5
+  4      4     FRA  3.2
+  5      5      US  5.6
+  6      6     CAN  8.9
+```
+]
+
+&lt;style&gt;
+.panel1-dat-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-dat-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-dat-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+### Tibble ( The best friend) Build a data frame
+
+**These concepts Will explainws in more detailed later in the presentation**
+
+**tibble Vs Data Frame is topic by itself**
+
+tibble() constructs a data frame. It is used like base::data.frame(), but with a couple notable differences:
+
+The returned data frame has the class tbl_df, in addition to data.frame. This allows so-called "tibbles" to exhibit some special behaviour, such as enhanced printing. Tibbles are fully described in tbl_df.
+
+tibble() is much lazier than base::data.frame() in terms of transforming the user's input.
+
+Character vectors are not coerced to factor.
+
+List-columns are expressly anticipated and do not require special tricks.
+
+Column names are not modified.
+
+Inner names in columns are left unchanged.
+
+tibble() builds columns sequentially. When defining a column, you can refer to columns created earlier in the call. Only columns of length one are recycled.
+
+If a column evaluates to a data frame or tibble, it is nested or spliced. 
+
+tibble_row() constructs a data frame that is guaranteed to occupy one row. Vector columns are required to have size one, non-vector columns are wrapped in a list.
+
+---
+
+# tibble vs t**r**ibble {tibble}	R Documentation
+
+Row-wise **tibble** creation
+
+Create tibbles using an easier to read row-by-row layout. This is useful for small tables of data where readability is important. Please see tibble-package for a general introduction.
+
+tribble(...)
+
+# Note spell difference tRibble 
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+*library(tibble)
+```
+]
+ 
+.panel2-my_t-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+*tribble(
+* ~"id", ~"greet", ~"nums",  # column heads
+* 1,        "hi",       2.3,
+* 2,        "bye",      3.5,
+* 3,        "adios",    4.2
+* )
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+tribble(
+  ~"id", ~"greet", ~"nums",  # column heads
+  1,        "hi",       2.3,
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+
+# Unnamed arguments are named with their expression:
+*a &lt;- 1:5
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+tribble(
+  ~"id", ~"greet", ~"nums",  # column heads
+  1,        "hi",       2.3,
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+
+# Unnamed arguments are named with their expression:
+a &lt;- 1:5
+*tibble(a, a * 2)
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+
+```
+  # A tibble: 5 x 2
+        a `a * 2`
+    &lt;int&gt;   &lt;dbl&gt;
+  1     1       2
+  2     2       4
+  3     3       6
+  4     4       8
+  5     5      10
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+tribble(
+  ~"id", ~"greet", ~"nums",  # column heads
+  1,        "hi",       2.3,
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+
+# Unnamed arguments are named with their expression:
+a &lt;- 1:5
+tibble(a, a * 2)
+
+*# Scalars (vectors of length one) are recycled:  # Scalars (vectors of length one) are recycled:
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+
+```
+  # A tibble: 5 x 2
+        a `a * 2`
+    &lt;int&gt;   &lt;dbl&gt;
+  1     1       2
+  2     2       4
+  3     3       6
+  4     4       8
+  5     5      10
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+tribble(
+  ~"id", ~"greet", ~"nums",  # column heads
+  1,        "hi",       2.3,
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+
+# Unnamed arguments are named with their expression:
+a &lt;- 1:5
+tibble(a, a * 2)
+
+# Scalars (vectors of length one) are recycled:  # Scalars (vectors of length one) are recycled:
+*ab &lt;- tibble(a, b = a * 2, c = 1)
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+
+```
+  # A tibble: 5 x 2
+        a `a * 2`
+    &lt;int&gt;   &lt;dbl&gt;
+  1     1       2
+  2     2       4
+  3     3       6
+  4     4       8
+  5     5      10
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+tribble(
+  ~"id", ~"greet", ~"nums",  # column heads
+  1,        "hi",       2.3,
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+
+# Unnamed arguments are named with their expression:
+a &lt;- 1:5
+tibble(a, a * 2)
+
+# Scalars (vectors of length one) are recycled:  # Scalars (vectors of length one) are recycled:
+ab &lt;- tibble(a, b = a * 2, c = 1)
+*ab
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+
+```
+  # A tibble: 5 x 2
+        a `a * 2`
+    &lt;int&gt;   &lt;dbl&gt;
+  1     1       2
+  2     2       4
+  3     3       6
+  4     4       8
+  5     5      10
+```
+
+```
+  # A tibble: 5 x 3
+        a     b     c
+    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+  1     1     2     1
+  2     2     4     1
+  3     3     6     1
+  4     4     8     1
+  5     5    10     1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t-auto[
+
+```r
+library(tibble)
+
+tribble(
+  ~"id", ~"greet", ~"nums",  # column heads
+  1,        "hi",       2.3,
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
+
+# Unnamed arguments are named with their expression:
+a &lt;- 1:5
+tibble(a, a * 2)
+
+# Scalars (vectors of length one) are recycled:  # Scalars (vectors of length one) are recycled:
+ab &lt;- tibble(a, b = a * 2, c = 1)
+ab
+```
+]
+ 
+.panel2-my_t-auto[
+
+```
+  # A tibble: 3 x 3
+       id greet  nums
+    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+  1     1 hi      2.3
+  2     2 bye     3.5
+  3     3 adios   4.2
+```
+
+```
+  # A tibble: 5 x 2
+        a `a * 2`
+    &lt;int&gt;   &lt;dbl&gt;
+  1     1       2
+  2     2       4
+  3     3       6
+  4     4       8
+  5     5      10
+```
+
+```
+  # A tibble: 5 x 3
+        a     b     c
+    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+  1     1     2     1
+  2     2     4     1
+  3     3     6     1
+  4     4     8     1
+  5     5    10     1
+```
+]
+
+&lt;style&gt;
+.panel1-my_t-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-my_t-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-my_t-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+*same &lt;- tibble(x = runif(3), y = x * 2)
+```
+]
+ 
+.panel2-my_t1-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+*same
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+         x      y
+     &lt;dbl&gt;  &lt;dbl&gt;
+  1 0.0149 0.0298
+  2 0.757  1.51  
+  3 0.0199 0.0398
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+*# tibble() never coerces its inputs  # tibble() never coerces its inputs
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+         x     y
+     &lt;dbl&gt; &lt;dbl&gt;
+  1 0.771  1.54 
+  2 0.0986 0.197
+  3 0.570  1.14
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+# tibble() never coerces its inputs  # tibble() never coerces its inputs
+
+*str(tibble(letters))
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+        x     y
+    &lt;dbl&gt; &lt;dbl&gt;
+  1 0.860 1.72 
+  2 0.708 1.42 
+  3 0.411 0.821
+```
+
+```
+  tibble [26 x 1] (S3: tbl_df/tbl/data.frame)
+   $ letters: chr [1:26] "a" "b" "c" "d" ...
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+# tibble() never coerces its inputs  # tibble() never coerces its inputs
+
+str(tibble(letters))
+
+*str(tibble(x = list(diag(1), diag(2))))
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+         x      y
+     &lt;dbl&gt;  &lt;dbl&gt;
+  1 0.265  0.529 
+  2 0.480  0.960 
+  3 0.0303 0.0605
+```
+
+```
+  tibble [26 x 1] (S3: tbl_df/tbl/data.frame)
+   $ letters: chr [1:26] "a" "b" "c" "d" ...
+```
+
+```
+  tibble [2 x 1] (S3: tbl_df/tbl/data.frame)
+   $ x:List of 2
+    ..$ : num [1, 1] 1
+    ..$ : num [1:2, 1:2] 1 0 0 1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+# tibble() never coerces its inputs  # tibble() never coerces its inputs
+
+str(tibble(letters))
+
+str(tibble(x = list(diag(1), diag(2))))
+
+*# or munges column names (unless requested),  # or munges column names (unless requested),
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+        x     y
+    &lt;dbl&gt; &lt;dbl&gt;
+  1 0.244 0.488
+  2 0.136 0.273
+  3 0.176 0.351
+```
+
+```
+  tibble [26 x 1] (S3: tbl_df/tbl/data.frame)
+   $ letters: chr [1:26] "a" "b" "c" "d" ...
+```
+
+```
+  tibble [2 x 1] (S3: tbl_df/tbl/data.frame)
+   $ x:List of 2
+    ..$ : num [1, 1] 1
+    ..$ : num [1:2, 1:2] 1 0 0 1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+# tibble() never coerces its inputs  # tibble() never coerces its inputs
+
+str(tibble(letters))
+
+str(tibble(x = list(diag(1), diag(2))))
+
+# or munges column names (unless requested),  # or munges column names (unless requested),
+*chk_tbl  &lt;- tibble(`a + b` = 1:3)
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+        x     y
+    &lt;dbl&gt; &lt;dbl&gt;
+  1 0.872 1.74 
+  2 0.314 0.628
+  3 0.507 1.01
+```
+
+```
+  tibble [26 x 1] (S3: tbl_df/tbl/data.frame)
+   $ letters: chr [1:26] "a" "b" "c" "d" ...
+```
+
+```
+  tibble [2 x 1] (S3: tbl_df/tbl/data.frame)
+   $ x:List of 2
+    ..$ : num [1, 1] 1
+    ..$ : num [1:2, 1:2] 1 0 0 1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+# tibble() never coerces its inputs  # tibble() never coerces its inputs
+
+str(tibble(letters))
+
+str(tibble(x = list(diag(1), diag(2))))
+
+# or munges column names (unless requested),  # or munges column names (unless requested),
+chk_tbl  &lt;- tibble(`a + b` = 1:3)
+
+
+*chk_tbl
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+        x     y
+    &lt;dbl&gt; &lt;dbl&gt;
+  1 0.433 0.866
+  2 0.899 1.80 
+  3 0.766 1.53
+```
+
+```
+  tibble [26 x 1] (S3: tbl_df/tbl/data.frame)
+   $ letters: chr [1:26] "a" "b" "c" "d" ...
+```
+
+```
+  tibble [2 x 1] (S3: tbl_df/tbl/data.frame)
+   $ x:List of 2
+    ..$ : num [1, 1] 1
+    ..$ : num [1:2, 1:2] 1 0 0 1
+```
+
+```
+  # A tibble: 3 x 1
+    `a + b`
+      &lt;int&gt;
+  1       1
+  2       2
+  3       3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-my_t1-auto[
+
+```r
+# Columns are available in subsequent expressions:
+
+
+same &lt;- tibble(x = runif(3), y = x * 2)
+same
+
+# tibble() never coerces its inputs  # tibble() never coerces its inputs
+
+str(tibble(letters))
+
+str(tibble(x = list(diag(1), diag(2))))
+
+# or munges column names (unless requested),  # or munges column names (unless requested),
+chk_tbl  &lt;- tibble(`a + b` = 1:3)
+
+
+chk_tbl
+
+# Unnamed arguments are named with their expression:
+```
+]
+ 
+.panel2-my_t1-auto[
+
+```
+  # A tibble: 3 x 2
+         x     y
+     &lt;dbl&gt; &lt;dbl&gt;
+  1 0.0802 0.160
+  2 0.643  1.29 
+  3 0.570  1.14
+```
+
+```
+  tibble [26 x 1] (S3: tbl_df/tbl/data.frame)
+   $ letters: chr [1:26] "a" "b" "c" "d" ...
+```
+
+```
+  tibble [2 x 1] (S3: tbl_df/tbl/data.frame)
+   $ x:List of 2
+    ..$ : num [1, 1] 1
+    ..$ : num [1:2, 1:2] 1 0 0 1
+```
+
+```
+  # A tibble: 3 x 1
+    `a + b`
+      &lt;int&gt;
+  1       1
+  2       2
+  3       3
+```
+]
+
+&lt;style&gt;
+.panel1-my_t1-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-my_t1-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-my_t1-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+*mean(1:5)
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+*mean(1:100^2)
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+*sd(1:10)
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+*mean(c(1, 4, 6, 7))
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+*mean(c(1, 4, 6, 7, NA))
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+*mean(c(1, 4, 6, 7, NA), na.rm = T)
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+*sd(c(1:10, NA))
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+*sd(c(1:10, NA), na.rm = T)
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+*x &lt;- 1:4 ; x
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+*median(1:4)
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+*# = 2.5 [even number]  # = 2.5 [even number]
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+# = 2.5 [even number]  # = 2.5 [even number]
+*x &lt;- c(1:3 , 100, 1000) ; x
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+
+```
+  [1]    1    2    3  100 1000
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+# = 2.5 [even number]  # = 2.5 [even number]
+x &lt;- c(1:3 , 100, 1000) ; x
+
+*median(c(1:3, 100, 1000))
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+
+```
+  [1]    1    2    3  100 1000
+```
+
+```
+  [1] 3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+# = 2.5 [even number]  # = 2.5 [even number]
+x &lt;- c(1:3 , 100, 1000) ; x
+
+median(c(1:3, 100, 1000))
+*# = 3 [odd, robust]  # = 3 [odd, robust]
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+
+```
+  [1]    1    2    3  100 1000
+```
+
+```
+  [1] 3
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+# = 2.5 [even number]  # = 2.5 [even number]
+x &lt;- c(1:3 , 100, 1000) ; x
+
+median(c(1:3, 100, 1000))
+ # = 3 [odd, robust]  # = 3 [odd, robust]
+
+*min(5:1, pi)  #-&gt; one number
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+
+```
+  [1]    1    2    3  100 1000
+```
+
+```
+  [1] 3
+```
+
+```
+  [1] 1
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+# = 2.5 [even number]  # = 2.5 [even number]
+x &lt;- c(1:3 , 100, 1000) ; x
+
+median(c(1:3, 100, 1000))
+ # = 3 [odd, robust]  # = 3 [odd, robust]
+
+min(5:1, pi)  #-&gt; one number
+
+*pmin(5:1, pi)  #-&gt;  5  numbers
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+
+```
+  [1]    1    2    3  100 1000
+```
+
+```
+  [1] 3
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] 3.141593 3.141593 3.000000 2.000000 1.000000
+```
+]
+
+---
+count: false
+ 
+
+.panel1-fun-auto[
+
+```r
+mean(1:5)
+
+mean(1:100^2)
+
+sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
+
+
+x &lt;- 1:4 ; x
+
+median(1:4)
+# = 2.5 [even number]  # = 2.5 [even number]
+x &lt;- c(1:3 , 100, 1000) ; x
+
+median(c(1:3, 100, 1000))
+ # = 3 [odd, robust]  # = 3 [odd, robust]
+
+min(5:1, pi)  #-&gt; one number
+
+pmin(5:1, pi)  #-&gt;  5  numbers
+```
+]
+ 
+.panel2-fun-auto[
+
+```
+  [1] 3
+```
+
+```
+  [1] 5000.5
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 4.5
+```
+
+```
+  [1] NA
+```
+
+```
+  [1] 3.02765
+```
+
+```
+  [1] 1 2 3 4
+```
+
+```
+  [1] 2.5
+```
+
+```
+  [1]    1    2    3  100 1000
+```
+
+```
+  [1] 3
+```
+
+```
+  [1] 1
+```
+
+```
+  [1] 3.141593 3.141593 3.000000 2.000000 1.000000
+```
+]
+
+&lt;style&gt;
+.panel1-fun-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-fun-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-fun-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
 class: inverse, middle, center
 # First up: classic flipbook, using defaults to walk through code pipeline
 &lt;!-- get a flipbook version of the my_cars code chunk - pauses are where parentheses are balanced --&gt;
+
+
 ---
 
 count: false
  
 
-.panel1-my_cars-auto[
+.panel1-verb-auto[
 
 ```r
-*head(adsl)
+*library(dplyr)
 ```
 ]
  
-.panel2-my_cars-auto[
+.panel2-verb-auto[
 
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
 ]
 
 ---
 count: false
  
 
-.panel1-my_cars-auto[
+.panel1-verb-auto[
 
 ```r
-head(adsl)
+library(dplyr)
 
 *cars
 ```
 ]
  
-.panel2-my_cars-auto[
+.panel2-verb-auto[
 
 ```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
+     speed dist
+  1      4    2
+  2      4   10
+  3      7    4
+  4      7   22
+  5      8   16
+  6      9   10
+  7     10   18
+  8     10   26
+  9     10   34
+  10    11   17
+  11    11   28
+  12    12   14
+  13    12   20
+  14    12   24
+  15    12   28
+  16    13   26
+  17    13   34
+  18    13   34
+  19    13   46
+  20    14   26
+  21    14   36
+  22    14   60
+  23    14   80
+  24    15   20
+  25    15   26
+  26    15   54
+  27    16   32
+  28    16   40
+  29    17   32
+  30    17   40
+  31    17   50
+  32    18   42
+  33    18   56
+  34    18   76
+  35    18   84
+  36    19   36
+  37    19   46
+  38    19   68
+  39    20   32
+  40    20   48
+  41    20   52
+  42    20   56
+  43    20   64
+  44    22   66
+  45    23   54
+  46    24   70
+  47    24   92
+  48    24   93
+  49    24  120
+  50    25   85
 ```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+* filter(speed &gt; 4 )
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+     speed dist
+  1      7    4
+  2      7   22
+  3      8   16
+  4      9   10
+  5     10   18
+  6     10   26
+  7     10   34
+  8     11   17
+  9     11   28
+  10    12   14
+  11    12   20
+  12    12   24
+  13    12   28
+  14    13   26
+  15    13   34
+  16    13   34
+  17    13   46
+  18    14   26
+  19    14   36
+  20    14   60
+  21    14   80
+  22    15   20
+  23    15   26
+  24    15   54
+  25    16   32
+  26    16   40
+  27    17   32
+  28    17   40
+  29    17   50
+  30    18   42
+  31    18   56
+  32    18   76
+  33    18   84
+  34    19   36
+  35    19   46
+  36    19   68
+  37    20   32
+  38    20   48
+  39    20   52
+  40    20   56
+  41    20   64
+  42    22   66
+  43    23   54
+  44    24   70
+  45    24   92
+  46    24   93
+  47    24  120
+  48    25   85
+```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+  filter(speed &gt; 4 ) %&gt;%
+* filter(speed &lt;= 10 )
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+    speed dist
+  1     7    4
+  2     7   22
+  3     8   16
+  4     9   10
+  5    10   18
+  6    10   26
+  7    10   34
+```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+  filter(speed &gt; 4 ) %&gt;%
+  filter(speed &lt;= 10 ) %&gt;%
+* arrange(speed , desc(dist))
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+    speed dist
+  1     7   22
+  2     7    4
+  3     8   16
+  4     9   10
+  5    10   34
+  6    10   26
+  7    10   18
+```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+  filter(speed &gt; 4 ) %&gt;%
+  filter(speed &lt;= 10 ) %&gt;%
+  arrange(speed , desc(dist)) %&gt;%
+* mutate(time = speed * dist )
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+    speed dist time
+  1     7   22  154
+  2     7    4   28
+  3     8   16  128
+  4     9   10   90
+  5    10   34  340
+  6    10   26  260
+  7    10   18  180
+```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+  filter(speed &gt; 4 ) %&gt;%
+  filter(speed &lt;= 10 ) %&gt;%
+  arrange(speed , desc(dist)) %&gt;%
+  mutate(time = speed * dist )
+
+
+*cars %&gt;%  rename(   furious = speed )%&gt;% head()
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+    speed dist time
+  1     7   22  154
+  2     7    4   28
+  3     8   16  128
+  4     9   10   90
+  5    10   34  340
+  6    10   26  260
+  7    10   18  180
+```
+
+```
+    furious dist
+  1       4    2
+  2       4   10
+  3       7    4
+  4       7   22
+  5       8   16
+  6       9   10
+```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+  filter(speed &gt; 4 ) %&gt;%
+  filter(speed &lt;= 10 ) %&gt;%
+  arrange(speed , desc(dist)) %&gt;%
+  mutate(time = speed * dist )
+
+
+cars %&gt;%  rename(   furious = speed )%&gt;% head()
+
+*cars %&gt;%  distinct(dist) %&gt;% head()
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+    speed dist time
+  1     7   22  154
+  2     7    4   28
+  3     8   16  128
+  4     9   10   90
+  5    10   34  340
+  6    10   26  260
+  7    10   18  180
+```
+
+```
+    furious dist
+  1       4    2
+  2       4   10
+  3       7    4
+  4       7   22
+  5       8   16
+  6       9   10
+```
+
+```
+    dist
+  1    2
+  2   10
+  3    4
+  4   22
+  5   16
+  6   18
+```
+]
+
+---
+count: false
+ 
+
+.panel1-verb-auto[
+
+```r
+library(dplyr)
+
+cars %&gt;%
+  filter(speed &gt; 4 ) %&gt;%
+  filter(speed &lt;= 10 ) %&gt;%
+  arrange(speed , desc(dist)) %&gt;%
+  mutate(time = speed * dist )
+
+
+cars %&gt;%  rename(   furious = speed )%&gt;% head()
+
+cars %&gt;%  distinct(dist) %&gt;% head()
+```
+]
+ 
+.panel2-verb-auto[
+
+```
+    speed dist time
+  1     7   22  154
+  2     7    4   28
+  3     8   16  128
+  4     9   10   90
+  5    10   34  340
+  6    10   26  260
+  7    10   18  180
+```
+
+```
+    furious dist
+  1       4    2
+  2       4   10
+  3       7    4
+  4       7   22
+  5       8   16
+  6       9   10
+```
+
+```
+    dist
+  1    2
+  2   10
+  3    4
+  4   22
+  5   16
+  6   18
+```
+]
+
+&lt;style&gt;
+.panel1-verb-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-verb-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-verb-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+count: false
+ 
+
+.panel1-my_cars-auto[
+
+```r
+*cars
+```
+]
+ 
+.panel2-my_cars-auto[
 
 ```
      speed dist
@@ -1871,66 +6564,12 @@ count: false
 .panel1-my_cars-auto[
 
 ```r
-head(adsl)
-
 cars %&gt;%
 * filter(speed &gt; 4)
 ```
 ]
  
 .panel2-my_cars-auto[
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
 
 ```
      speed dist
@@ -1992,8 +6631,6 @@ count: false
 .panel1-my_cars-auto[
 
 ```r
-head(adsl)
-
 cars %&gt;%
   filter(speed &gt; 4) %&gt;%
 * ggplot()
@@ -2001,59 +6638,24 @@ cars %&gt;%
 ]
  
 .panel2-my_cars-auto[
+&lt;img src="mini_flip_book_files/figure-html/my_cars_auto_03_output-1.png" width="100%" /&gt;
+]
 
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
+---
+count: false
+ 
 
+.panel1-my_cars-auto[
+
+```r
+cars %&gt;%
+  filter(speed &gt; 4) %&gt;%
+  ggplot() +
+* aes(x = speed)
+```
+]
+ 
+.panel2-my_cars-auto[
 &lt;img src="mini_flip_book_files/figure-html/my_cars_auto_04_output-1.png" width="100%" /&gt;
 ]
 
@@ -2064,69 +6666,15 @@ count: false
 .panel1-my_cars-auto[
 
 ```r
-head(adsl)
-
 cars %&gt;%
   filter(speed &gt; 4) %&gt;%
   ggplot() +
-* aes(x = speed)
+  aes(x = speed) +
+* aes(y = dist)
 ```
 ]
  
 .panel2-my_cars-auto[
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
 &lt;img src="mini_flip_book_files/figure-html/my_cars_auto_05_output-1.png" width="100%" /&gt;
 ]
 
@@ -2137,82 +6685,6 @@ count: false
 .panel1-my_cars-auto[
 
 ```r
-head(adsl)
-
-cars %&gt;%
-  filter(speed &gt; 4) %&gt;%
-  ggplot() +
-  aes(x = speed) +
-* aes(y = dist)
-```
-]
- 
-.panel2-my_cars-auto[
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
-&lt;img src="mini_flip_book_files/figure-html/my_cars_auto_06_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-
-.panel1-my_cars-auto[
-
-```r
-head(adsl)
-
 cars %&gt;%
   filter(speed &gt; 4) %&gt;%
   ggplot() +
@@ -2226,60 +6698,7 @@ cars %&gt;%
 ]
  
 .panel2-my_cars-auto[
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
-&lt;img src="mini_flip_book_files/figure-html/my_cars_auto_07_output-1.png" width="100%" /&gt;
+&lt;img src="mini_flip_book_files/figure-html/my_cars_auto_06_output-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -2289,8 +6708,6 @@ count: false
 .panel1-my_cars-auto[
 
 ```r
-head(adsl)
-
 cars %&gt;%
   filter(speed &gt; 4) %&gt;%
   ggplot() +
@@ -2305,60 +6722,7 @@ cars %&gt;%
 ]
  
 .panel2-my_cars-auto[
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
-&lt;img src="mini_flip_book_files/figure-html/my_cars_auto_08_output-1.png" width="100%" /&gt;
+&lt;img src="mini_flip_book_files/figure-html/my_cars_auto_07_output-1.png" width="100%" /&gt;
 ]
 
 &lt;style&gt;
@@ -2404,175 +6768,16 @@ class: inverse, center, middle
 
 count: false
 ### user defined break! using #BREAK message
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
 &lt;img src="mini_flip_book_files/figure-html/my_cars_user_01_output-1.png" width="100%" /&gt;
 
 ---
 count: false
 ### user defined break! using #BREAK message
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
 &lt;img src="mini_flip_book_files/figure-html/my_cars_user_02_output-1.png" width="100%" /&gt;
 
 ---
 count: false
 ### user defined break! using #BREAK message
-
-```
-         studyid     usubjid subjid siteid sitegr1                  arm
-  1 CDISCPILOT01 01-701-1015   1015    701     701              Placebo
-  2 CDISCPILOT01 01-701-1023   1023    701     701              Placebo
-  3 CDISCPILOT01 01-701-1028   1028    701     701 Xanomeline High Dose
-  4 CDISCPILOT01 01-701-1033   1033    701     701  Xanomeline Low Dose
-  5 CDISCPILOT01 01-701-1034   1034    701     701 Xanomeline High Dose
-  6 CDISCPILOT01 01-701-1047   1047    701     701              Placebo
-                  trt01p trt01pn               trt01a trt01an     trtsdt
-  1              Placebo       0              Placebo       0 2014-01-02
-  2              Placebo       0              Placebo       0 2012-08-05
-  3 Xanomeline High Dose      81 Xanomeline High Dose      81 2013-07-19
-  4  Xanomeline Low Dose      54  Xanomeline Low Dose      54 2014-03-18
-  5 Xanomeline High Dose      81 Xanomeline High Dose      81 2014-07-01
-  6              Placebo       0              Placebo       0 2013-02-12
-        trtedt trtdur avgdd cumdose age agegr1 agegr1n  ageu  race racen sex
-  1 2014-07-02    182   0.0       0  63    &lt;65       1 YEARS WHITE     1   F
-  2 2012-09-01     28   0.0       0  64    &lt;65       1 YEARS WHITE     1   M
-  3 2014-01-14    180  77.7   13986  71  65-80       2 YEARS WHITE     1   M
-  4 2014-03-31     14  54.0     756  74  65-80       2 YEARS WHITE     1   M
-  5 2014-12-30    183  76.9   14067  77  65-80       2 YEARS WHITE     1   F
-  6 2013-03-09     26   0.0       0  85    &gt;80       3 YEARS WHITE     1   F
-                    ethnic saffl ittfl efffl comp8fl comp16fl comp24fl disconfl
-  1     HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  2     HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  3 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  4 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-  5 NOT HISPANIC OR LATINO     Y     Y     Y       Y        Y        Y         
-  6 NOT HISPANIC OR LATINO     Y     Y     Y       N        N        N        Y
-    dsraefl dthfl bmibl bmiblgr1 heightbl weightbl educlvl   disonsdt durdis
-  1                25.1   25-&lt;30    147.3     54.4      16 2010-04-30   43.9
-  2       Y        30.4     &gt;=30    162.6     80.3      14 2006-03-11   76.4
-  3                31.4     &gt;=30    177.8     99.3      16 2009-12-16   42.8
-  4                28.8   25-&lt;30    175.3     88.5      12 2009-08-02   55.3
-  5                26.1   25-&lt;30    154.9     62.6       9 2011-09-29   32.9
-  6       Y        30.4     &gt;=30    148.6     67.1       8 2009-07-26   42.0
-    durdsgr1   visit1dt    rfstdtc    rfendtc visnumen     rfendt
-  1     &gt;=12 2013-12-26 2014-01-02 2014-07-02       12 2014-07-02
-  2     &gt;=12 2012-07-22 2012-08-05 2012-09-02        5 2012-09-02
-  3     &gt;=12 2013-07-11 2013-07-19 2014-01-14       12 2014-01-14
-  4     &gt;=12 2014-03-10 2014-03-18 2014-04-14        5 2014-04-14
-  5     &gt;=12 2014-06-24 2014-07-01 2014-12-30       12 2014-12-30
-  6     &gt;=12 2013-01-22 2013-02-12 2013-03-29        6 2013-03-29
-                        dcdecod         dcreascd mmsetot
-  1                   COMPLETED        Completed      23
-  2               ADVERSE EVENT    Adverse Event      23
-  3                   COMPLETED        Completed      23
-  4 STUDY TERMINATED BY SPONSOR Sponsor Decision      23
-  5                   COMPLETED        Completed      21
-  6               ADVERSE EVENT    Adverse Event      23
-```
-
 &lt;img src="mini_flip_book_files/figure-html/my_cars_user_03_output-1.png" width="100%" /&gt;
 
 &lt;style&gt;
