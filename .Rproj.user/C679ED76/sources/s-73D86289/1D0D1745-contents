@@ -39,7 +39,7 @@ background-size: cover
 <br> 
 <br>
 
-#### .right[ Presentation : Phanikumar <br><br> <br>Photo Credit: Zoya Loonohod]<br>
+#### .right[ Presentation : Phanikumar<br><br>source code: https://github.com/tataphani/oct_n_pres <br><br>Photo Credit: Zoya Loonohod]<br>
 
 ```{r , include = F}
 # This is the recommended set up for flipbooks
