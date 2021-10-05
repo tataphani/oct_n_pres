@@ -20,6 +20,9 @@ output:
 xaringanExtra::use_share_again()
 ```
 
+![](figures/present.png)
+
+---
 
 ```{r, eval = F, echo = F}
 library(tidyverse)
@@ -39,7 +42,7 @@ background-size: cover
 <br> 
 <br>
 
-#### .right[ Presentation : Phanikumar <br><br> <br>Photo Credit: Zoya Loonohod]<br>
+#### .right[ Presentation : Phanikumar<br><br>source code: https://github.com/tataphani/oct_n_pres <br><br>Photo Credit: Zoya Loonohod]<br>
 
 ```{r , include = F}
 # This is the recommended set up for flipbooks
@@ -100,7 +103,7 @@ class: inverse, middle, center
 
 # Getting started with R and RStudio
 
-The tools demonstrated in this book are implemented in the statistical software, R which is opensource and freely available.  RStudio, an integrated development environment (IDE), is a nice environment for working in R.  The following links may help you get R and RStudio up and running. 
+The tools demonstrated in this flip book are implemented in the statistical software, R which is opensource and freely available.  RStudio, an integrated development environment (IDE), is a nice environment for working in R.  The following links may help you get R and RStudio up and running. 
 
 - [Install Windows](https://www.youtube.com/watch?v=aCRMhAWmtpw)
 - [Install Mac](https://www.youtube.com/watch?v=GLLZhc_5enQ)
@@ -731,9 +734,7 @@ data.frame(
 
 ### Tibble ( The best friend) Build a data frame
 
-**These concepts Will explainws in more detailed later in the presentation**
-
-**tibble Vs Data Frame is topic by itself**
+**tibble Vs Data Frame is Topic by itself may be in  next presentation**
 
 tibble() constructs a data frame. It is used like base::data.frame(), but with a couple notable differences:
 
@@ -749,15 +750,18 @@ Column names are not modified.
 
 Inner names in columns are left unchanged.
 
+
+---
+### Tibble (Contd...)
+
 tibble() builds columns sequentially. When defining a column, you can refer to columns created earlier in the call. Only columns of length one are recycled.
 
 If a column evaluates to a data frame or tibble, it is nested or spliced. 
 
 tibble_row() constructs a data frame that is guaranteed to occupy one row. Vector columns are required to have size one, non-vector columns are wrapped in a list.
 
----
 
-# tibble vs t**r**ibble {tibble}	R Documentation
+### tibble vs t**r**ibble {tibble}	R Documentation
 
 Row-wise **tibble** creation
 
@@ -765,7 +769,7 @@ Create tibbles using an easier to read row-by-row layout. This is useful for sma
 
 tribble(...)
 
-# Note spell difference tRibble 
+#### Note spell difference tRibble 
 
 ---
 `r chunk_reveal("my_t")`
@@ -819,6 +823,62 @@ chk_tbl
 
 ---
 
+
+## Summary Functions 
+#### mean {base Package}	  Arithmetic Mean
+
+Generic function for the (trimmed) arithmetic mean.
+Usage ## **mean(x, trim = 0, na.rm = FALSE, ...)   "all lower case"**
+
+If trim is zero (the default), the arithmetic mean of the values in x is computed, as a numeric or complex vector of length one. If x is not logical (coerced to numeric), numeric (including integer) or complex, NA_real_ is returned, with a warning.
+
+If trim is non-zero, a symmetrically trimmed mean is computed with a fraction of trim observations deleted from each end before the mean is computed
+
+#### Standard Deviation {stats package} **sd(x, na.rm = FALSE) "all lower case"**
+ 
+This function computes the standard deviation of the values in x. If na.rm is TRUE then missing values are removed before computation proceeds.
+
+---
+## Summary Functions (contd..)
+
+#### Median Value median {stats package} **median(x, na.rm = FALSE, ...)**
+
+The default method returns a length-one object of the same type as x, except when x is logical or integer of even length, when the result will be double.
+
+If there are no values or if na.rm = FALSE and there are NA values the result is NA of the same type as x (or more generally the result of x[FALSE][NA]).
+
+---
+## Summary Functions (contd..)
+#### Extremes {base}	 Maxima and Minima
+
+max(..., na.rm = FALSE)
+min(..., na.rm = FALSE)
+
+pmax(..., na.rm = FALSE)
+pmin(..., na.rm = FALSE)
+
+pmax.int(..., na.rm = FALSE)
+pmin.int(..., na.rm = FALSE)
+
+For min or max, a length-one vector. For pmin or pmax, a vector of length the longest of the input vectors, or length zero if one of the inputs had zero length.
+
+---
+
+## Summary Functions (contd..)
+#### Extremes {base}	 Maxima and Minima(contd..)
+
+
+The type of the result will be that of the highest of the inputs in the hierarchy integer < double < character.
+
+For min and max if there are only numeric inputs and all are empty (after possible removal of NAs), the result is double (Inf or -Inf).
+
+### NOTE
+
+By definition the min/max of a numeric vector containing an NaN is NaN, except that the min/max of any vector containing an NA is NA even if it also contains an NaN. Note that max(NA, Inf) == NA even though the maximum would be Inf whatever the missing value actually is.
+
+Character versions are sorted lexicographically, and this depends on the collating sequence of the locale in use: the help for ‘Comparison’ gives details. The max/min of an empty character vector is defined to be character NA. (One could argue that as "" is the smallest character element, the maximum should be "", but there is no obvious candidate for the minimum.)
+
+---
 `r chunk_reveal("fun")`
 
 ```{r fun, include=F}
@@ -898,92 +958,7 @@ cars %>%
     ) + 
   aes(size = speed) #BREAK
 ```
-
----
-class: inverse, center, middle
-
-
-# Next up:  refer to same chunk, but use user defined breakpoints, and display output only
-
-
-<!-- get another flipbook version of the my_cars code chunk, this time at the defined breaks and only showing output -->
----
-
-`r chunk_reveal("my_cars", break_type = "user", display_type = "output", title = "### user defined break! using #BREAK message")`
-
-
-
----
-class: inverse, center, middle
-
-# Next up:  cycle through different lines of code
-
-
-
-
-
-<!-- get flipbook that rotates through lines, my_fill -->
----
-
-`r chunk_reveal("my_fill", break_type = "rotate", widths = c(1,1), title = "### cycle through lines of code marked #ROTATE")`
-
-```{r my_fill, eval = F, echo = F}
-ggplot(data = cars) +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_point(size = 8,
-             shape = 21,
-             alpha = .9,
-             color = "snow") +
-  aes(fill = speed) +
-  scale_fill_viridis_c(option = "magma") + #ROTATE
-  scale_fill_viridis_c(option = "cividis") + #ROTATE
-  scale_fill_viridis_c(option = "plasma") #ROTATE
-```
-
-
----
-class: inverse, center, middle
-
-# Next up:  look at multiple realizations of same code
-
-
-
-
-
-<!-- get flipbook that shows multiple realizations of the same code -->
----
-
-`r chunk_reveal("cars_multi", break_type = 5, title = "### see multiple realizations of code")`
-
-```{r cars_multi, include = FALSE}
-cars %>% 
-  sample_frac(size = 1, replace = TRUE) %>%      
-  ggplot() +              
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_count(
-    alpha = .7,
-    color = "blue",
-    size = 4
-    ) + 
-  geom_smooth(method = lm, se = FALSE) +
-  coord_cartesian(xlim = range(cars$speed),
-                  ylim = range(cars$dist)) +
-  theme(legend.position = c(.9, .2))
-```
-
-
----
-
-`r chunk_reveal("test", left_assign = "detect")`
-
-```{r test, include=FALSE}
-# hello
-jam <- "hi"
-```
-
-
+ 
 
 <!-- adjust font size in this css code chunk, currently 80 -->
 
@@ -1009,8 +984,17 @@ code.r.hljs.remark-code:hover{
 }
 ```
 
+---
 
+<br> 
+<br>
+ 
 
+![](figures/thank.png)
+
+<br> 
+<br>
+ 
 ---
 
 # Notes: 

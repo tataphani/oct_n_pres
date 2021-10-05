@@ -1,4 +1,0 @@
-"0",""
-"0","# Scalars (vectors of length one) are recycled:"
-"0","ab <- tibble(a, b = a * 2, c = 1)"
-"0","ab"

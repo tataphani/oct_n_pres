@@ -4,7 +4,7 @@
     <title>—Learning Data Manuplation—-</title>
     <meta charset="utf-8" />
     <meta name="author" content="  Phanikumar S Tata" />
-    <meta name="date" content="2021-10-04" />
+    <meta name="date" content="2021-10-05" />
     <script src="libs/header-attrs-2.10/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
@@ -22,6 +22,9 @@
 
 
 
+![](figures/present.png)
+
+---
 
 
 
@@ -81,7 +84,7 @@ class: inverse, middle, center
 
 # Getting started with R and RStudio
 
-The tools demonstrated in this book are implemented in the statistical software, R which is opensource and freely available.  RStudio, an integrated development environment (IDE), is a nice environment for working in R.  The following links may help you get R and RStudio up and running. 
+The tools demonstrated in this flip book are implemented in the statistical software, R which is opensource and freely available.  RStudio, an integrated development environment (IDE), is a nice environment for working in R.  The following links may help you get R and RStudio up and running. 
 
 - [Install Windows](https://www.youtube.com/watch?v=aCRMhAWmtpw)
 - [Install Mac](https://www.youtube.com/watch?v=GLLZhc_5enQ)
@@ -3805,7 +3808,7 @@ str(factor(c("hello", "bye"),
 ```
 
 ```
-   POSIXct[1:1], format: "2021-10-04 23:23:48"
+   POSIXct[1:1], format: "2021-10-05 11:55:07"
 ```
 ]
 
@@ -3887,11 +3890,11 @@ str(Sys.time())
 ```
 
 ```
-   POSIXct[1:1], format: "2021-10-04 23:23:48"
+   POSIXct[1:1], format: "2021-10-05 11:55:07"
 ```
 
 ```
-   Date[1:1], format: "2021-10-04"
+   Date[1:1], format: "2021-10-05"
 ```
 ]
 
@@ -3973,11 +3976,11 @@ str(Sys.Date())
 ```
 
 ```
-   POSIXct[1:1], format: "2021-10-04 23:23:48"
+   POSIXct[1:1], format: "2021-10-05 11:55:07"
 ```
 
 ```
-   Date[1:1], format: "2021-10-04"
+   Date[1:1], format: "2021-10-05"
 ```
 ]
 
@@ -4144,9 +4147,7 @@ data.frame(
 
 ### Tibble ( The best friend) Build a data frame
 
-**These concepts Will explainws in more detailed later in the presentation**
-
-**tibble Vs Data Frame is topic by itself**
+**tibble Vs Data Frame is Topic by itself may be in  next presentation**
 
 tibble() constructs a data frame. It is used like base::data.frame(), but with a couple notable differences:
 
@@ -4162,15 +4163,18 @@ Column names are not modified.
 
 Inner names in columns are left unchanged.
 
+
+---
+### Tibble (Contd...)
+
 tibble() builds columns sequentially. When defining a column, you can refer to columns created earlier in the call. Only columns of length one are recycled.
 
 If a column evaluates to a data frame or tibble, it is nested or spliced. 
 
 tibble_row() constructs a data frame that is guaranteed to occupy one row. Vector columns are required to have size one, non-vector columns are wrapped in a list.
 
----
 
-# tibble vs t**r**ibble {tibble}	R Documentation
+### tibble vs t**r**ibble {tibble}	R Documentation
 
 Row-wise **tibble** creation
 
@@ -4178,7 +4182,7 @@ Create tibbles using an easier to read row-by-row layout. This is useful for sma
 
 tribble(...)
 
-# Note spell difference tRibble 
+#### Note spell difference tRibble 
 
 ---
 count: false
@@ -4589,9 +4593,9 @@ same &lt;- tibble(x = runif(3), y = x * 2)
   # A tibble: 3 x 2
         x     y
     &lt;dbl&gt; &lt;dbl&gt;
-  1 0.753  1.51
-  2 0.582  1.16
-  3 0.965  1.93
+  1 0.644 1.29 
+  2 0.123 0.247
+  3 0.137 0.273
 ```
 ]
 
@@ -4618,9 +4622,9 @@ same
   # A tibble: 3 x 2
          x      y
      &lt;dbl&gt;  &lt;dbl&gt;
-  1 0.323  0.646 
-  2 0.0249 0.0497
-  3 0.749  1.50
+  1 0.0205 0.0410
+  2 0.378  0.757 
+  3 0.361  0.721
 ```
 ]
 
@@ -4649,9 +4653,9 @@ same
   # A tibble: 3 x 2
          x      y
      &lt;dbl&gt;  &lt;dbl&gt;
-  1 0.0135 0.0270
-  2 0.253  0.505 
-  3 0.930  1.86
+  1 0.474  0.948 
+  2 0.0185 0.0371
+  3 0.450  0.900
 ```
 
 ```
@@ -4687,9 +4691,9 @@ str(tibble(letters))
   # A tibble: 3 x 2
         x     y
     &lt;dbl&gt; &lt;dbl&gt;
-  1 0.778 1.56 
-  2 0.523 1.05 
-  3 0.230 0.460
+  1 0.659 1.32 
+  2 0.919 1.84 
+  3 0.395 0.789
 ```
 
 ```
@@ -4734,9 +4738,9 @@ str(tibble(x = list(diag(1), diag(2))))
   # A tibble: 3 x 2
         x     y
     &lt;dbl&gt; &lt;dbl&gt;
-  1 0.485 0.970
-  2 0.674 1.35 
-  3 0.860 1.72
+  1 0.625 1.25 
+  2 0.111 0.222
+  3 1.00  2.00
 ```
 
 ```
@@ -4782,9 +4786,9 @@ str(tibble(x = list(diag(1), diag(2))))
   # A tibble: 3 x 2
         x     y
     &lt;dbl&gt; &lt;dbl&gt;
-  1 0.241 0.482
-  2 0.794 1.59 
-  3 0.982 1.96
+  1 0.562  1.12
+  2 0.687  1.37
+  3 0.571  1.14
 ```
 
 ```
@@ -4831,11 +4835,11 @@ chk_tbl  &lt;- tibble(`a + b` = 1:3)
 
 ```
   # A tibble: 3 x 2
-        x     y
-    &lt;dbl&gt; &lt;dbl&gt;
-  1 0.872 1.74 
-  2 0.346 0.693
-  3 0.686 1.37
+         x     y
+     &lt;dbl&gt; &lt;dbl&gt;
+  1 0.852  1.70 
+  2 0.0766 0.153
+  3 0.610  1.22
 ```
 
 ```
@@ -4895,9 +4899,9 @@ chk_tbl
   # A tibble: 3 x 2
         x     y
     &lt;dbl&gt; &lt;dbl&gt;
-  1 0.960 1.92 
-  2 0.288 0.576
-  3 0.518 1.04
+  1 0.724 1.45 
+  2 0.633 1.27 
+  3 0.177 0.354
 ```
 
 ```
@@ -4955,6 +4959,62 @@ chk_tbl
 
 ---
 
+
+## Summary Functions 
+#### mean {base Package}	  Arithmetic Mean
+
+Generic function for the (trimmed) arithmetic mean.
+Usage ## **mean(x, trim = 0, na.rm = FALSE, ...)   "all lower case"**
+
+If trim is zero (the default), the arithmetic mean of the values in x is computed, as a numeric or complex vector of length one. If x is not logical (coerced to numeric), numeric (including integer) or complex, NA_real_ is returned, with a warning.
+
+If trim is non-zero, a symmetrically trimmed mean is computed with a fraction of trim observations deleted from each end before the mean is computed
+
+#### Standard Deviation {stats package} **sd(x, na.rm = FALSE) "all lower case"**
+ 
+This function computes the standard deviation of the values in x. If na.rm is TRUE then missing values are removed before computation proceeds.
+
+---
+## Summary Functions (contd..)
+
+#### Median Value median {stats package} **median(x, na.rm = FALSE, ...)**
+
+The default method returns a length-one object of the same type as x, except when x is logical or integer of even length, when the result will be double.
+
+If there are no values or if na.rm = FALSE and there are NA values the result is NA of the same type as x (or more generally the result of x[FALSE][NA]).
+
+---
+## Summary Functions (contd..)
+#### Extremes {base}	 Maxima and Minima
+
+max(..., na.rm = FALSE)
+min(..., na.rm = FALSE)
+
+pmax(..., na.rm = FALSE)
+pmin(..., na.rm = FALSE)
+
+pmax.int(..., na.rm = FALSE)
+pmin.int(..., na.rm = FALSE)
+
+For min or max, a length-one vector. For pmin or pmax, a vector of length the longest of the input vectors, or length zero if one of the inputs had zero length.
+
+---
+
+## Summary Functions (contd..)
+#### Extremes {base}	 Maxima and Minima(contd..)
+
+
+The type of the result will be that of the highest of the inputs in the hierarchy integer &lt; double &lt; character.
+
+For min and max if there are only numeric inputs and all are empty (after possible removal of NAs), the result is double (Inf or -Inf).
+
+### NOTE
+
+By definition the min/max of a numeric vector containing an NaN is NaN, except that the min/max of any vector containing an NA is NA even if it also contains an NaN. Note that max(NA, Inf) == NA even though the maximum would be Inf whatever the missing value actually is.
+
+Character versions are sorted lexicographically, and this depends on the collating sequence of the locale in use: the help for ‘Comparison’ gives details. The max/min of an empty character vector is defined to be character NA. (One could argue that as "" is the smallest character element, the maximum should be "", but there is no obvious candidate for the minimum.)
+
+---
 count: false
  
 
@@ -6755,411 +6815,7 @@ cars %&gt;%
 
 
 
-
----
-class: inverse, center, middle
-
-
-# Next up:  refer to same chunk, but use user defined breakpoints, and display output only
-
-
-&lt;!-- get another flipbook version of the my_cars code chunk, this time at the defined breaks and only showing output --&gt;
----
-
-count: false
-### user defined break! using #BREAK message
-&lt;img src="index_files/figure-html/my_cars_user_01_output-1.png" width="100%" /&gt;
-
----
-count: false
-### user defined break! using #BREAK message
-&lt;img src="index_files/figure-html/my_cars_user_02_output-1.png" width="100%" /&gt;
-
----
-count: false
-### user defined break! using #BREAK message
-&lt;img src="index_files/figure-html/my_cars_user_03_output-1.png" width="100%" /&gt;
-
-&lt;style&gt;
-.panel1-my_cars-user {
-  color: black;
-  width: 99%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-my_cars-user {
-  color: black;
-  width: NA%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-my_cars-user {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-
-
----
-class: inverse, center, middle
-
-# Next up:  cycle through different lines of code
-
-
-
-
-
-&lt;!-- get flipbook that rotates through lines, my_fill --&gt;
----
-
-count: false
  
-### cycle through lines of code marked #ROTATE
-.panel1-my_fill-rotate[
-
-```r
-ggplot(data = cars) +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_point(size = 8,
-             shape = 21,
-             alpha = .9,
-             color = "snow") +
-  aes(fill = speed) +
-* scale_fill_viridis_c(option = "magma")
-```
-]
- 
-.panel2-my_fill-rotate[
-&lt;img src="index_files/figure-html/my_fill_rotate_01_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-### cycle through lines of code marked #ROTATE
-.panel1-my_fill-rotate[
-
-```r
-ggplot(data = cars) +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_point(size = 8,
-             shape = 21,
-             alpha = .9,
-             color = "snow") +
-  aes(fill = speed) +
-* scale_fill_viridis_c(option = "cividis")
-```
-]
- 
-.panel2-my_fill-rotate[
-&lt;img src="index_files/figure-html/my_fill_rotate_02_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-### cycle through lines of code marked #ROTATE
-.panel1-my_fill-rotate[
-
-```r
-ggplot(data = cars) +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_point(size = 8,
-             shape = 21,
-             alpha = .9,
-             color = "snow") +
-  aes(fill = speed) +
-* scale_fill_viridis_c(option = "plasma")
-```
-]
- 
-.panel2-my_fill-rotate[
-&lt;img src="index_files/figure-html/my_fill_rotate_03_output-1.png" width="100%" /&gt;
-]
-
-&lt;style&gt;
-.panel1-my_fill-rotate {
-  color: black;
-  width: 49%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-my_fill-rotate {
-  color: black;
-  width: 49%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-my_fill-rotate {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-
-
-
----
-class: inverse, center, middle
-
-# Next up:  look at multiple realizations of same code
-
-
-
-
-
-&lt;!-- get flipbook that shows multiple realizations of the same code --&gt;
----
-
-count: false
- 
-### see multiple realizations of code
-.panel1-cars_multi-5[
-
-```r
-cars %&gt;%
-  sample_frac(size = 1, replace = TRUE) %&gt;%
-  ggplot() +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_count(
-    alpha = .7,
-    color = "blue",
-    size = 4
-    ) +
-  geom_smooth(method = lm, se = FALSE) +
-  coord_cartesian(xlim = range(cars$speed),
-                  ylim = range(cars$dist)) +
-  theme(legend.position = c(.9, .2))
-```
-]
- 
-.panel2-cars_multi-5[
-&lt;img src="index_files/figure-html/cars_multi_5_01_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-### see multiple realizations of code
-.panel1-cars_multi-5[
-
-```r
-cars %&gt;%
-  sample_frac(size = 1, replace = TRUE) %&gt;%
-  ggplot() +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_count(
-    alpha = .7,
-    color = "blue",
-    size = 4
-    ) +
-  geom_smooth(method = lm, se = FALSE) +
-  coord_cartesian(xlim = range(cars$speed),
-                  ylim = range(cars$dist)) +
-  theme(legend.position = c(.9, .2))
-```
-]
- 
-.panel2-cars_multi-5[
-&lt;img src="index_files/figure-html/cars_multi_5_02_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-### see multiple realizations of code
-.panel1-cars_multi-5[
-
-```r
-cars %&gt;%
-  sample_frac(size = 1, replace = TRUE) %&gt;%
-  ggplot() +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_count(
-    alpha = .7,
-    color = "blue",
-    size = 4
-    ) +
-  geom_smooth(method = lm, se = FALSE) +
-  coord_cartesian(xlim = range(cars$speed),
-                  ylim = range(cars$dist)) +
-  theme(legend.position = c(.9, .2))
-```
-]
- 
-.panel2-cars_multi-5[
-&lt;img src="index_files/figure-html/cars_multi_5_03_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-### see multiple realizations of code
-.panel1-cars_multi-5[
-
-```r
-cars %&gt;%
-  sample_frac(size = 1, replace = TRUE) %&gt;%
-  ggplot() +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_count(
-    alpha = .7,
-    color = "blue",
-    size = 4
-    ) +
-  geom_smooth(method = lm, se = FALSE) +
-  coord_cartesian(xlim = range(cars$speed),
-                  ylim = range(cars$dist)) +
-  theme(legend.position = c(.9, .2))
-```
-]
- 
-.panel2-cars_multi-5[
-&lt;img src="index_files/figure-html/cars_multi_5_04_output-1.png" width="100%" /&gt;
-]
-
----
-count: false
- 
-### see multiple realizations of code
-.panel1-cars_multi-5[
-
-```r
-cars %&gt;%
-  sample_frac(size = 1, replace = TRUE) %&gt;%
-  ggplot() +
-  aes(x = speed) +
-  aes(y = dist) +
-  geom_count(
-    alpha = .7,
-    color = "blue",
-    size = 4
-    ) +
-  geom_smooth(method = lm, se = FALSE) +
-  coord_cartesian(xlim = range(cars$speed),
-                  ylim = range(cars$dist)) +
-  theme(legend.position = c(.9, .2))
-```
-]
- 
-.panel2-cars_multi-5[
-&lt;img src="index_files/figure-html/cars_multi_5_05_output-1.png" width="100%" /&gt;
-]
-
-&lt;style&gt;
-.panel1-cars_multi-5 {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-cars_multi-5 {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-cars_multi-5 {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-
-
-
----
-
-count: false
- 
-
-.panel1-test-auto[
-
-```r
-# hello
-*jam &lt;- "hi"
-
-jam
-```
-]
- 
-.panel2-test-auto[
-
-```
-  [1] "hi"
-```
-]
-
-&lt;style&gt;
-.panel1-test-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-test-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-test-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-
-
-
 
 &lt;!-- adjust font size in this css code chunk, currently 80 --&gt;
 
@@ -7185,8 +6841,17 @@ code.r.hljs.remark-code:hover{
 }
 &lt;/style&gt;
 
+---
 
+&lt;br&gt; 
+&lt;br&gt;
+ 
 
+![](figures/thank.png)
+
+&lt;br&gt; 
+&lt;br&gt;
+ 
 ---
 
 # Notes: 
